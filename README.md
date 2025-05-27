@@ -21,7 +21,7 @@
 ### Установка и запуск
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/telegram-scheduler-bot.git
+git clone https://github.com/Justhateme0/telegram-scheduler-bot.git
 cd telegram-scheduler-bot
 ```
 
@@ -71,7 +71,7 @@ A Telegram bot for scheduling delayed posts to channels with customizable time i
 ### Installation and Launch
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/telegram-scheduler-bot.git
+git clone https://github.com/Justhateme0/telegram-scheduler-bot.git
 cd telegram-scheduler-bot
 ```
 
