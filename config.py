@@ -5,12 +5,12 @@ import json
 load_dotenv()
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
-if not BOT_TOKEN or BOT_TOKEN == '7599447695:AAE_e6Gu--Xbdci6onHRbEJ4eE_D1X86xpg':
-    BOT_TOKEN = '7599447695:AAE_e6Gu--Xbdci6onHRbEJ4eE_D1X86xpg'
+if not BOT_TOKEN or BOT_TOKEN == 'BOT_TOKEN':
+    BOT_TOKEN = 'BOT_TOKEN'
 
 ADMIN_IDS = [int(admin_id) for admin_id in os.getenv('ADMIN_IDS', '').split(',') if admin_id]
 if not ADMIN_IDS:
-    ADMIN_IDS = [1004014601]
+    ADMIN_IDS = [ADMIN_IDS]
 
 DEFAULT_CONFIG = {
     "channels": {}
