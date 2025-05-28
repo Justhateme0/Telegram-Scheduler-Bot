@@ -14,6 +14,10 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
+def error_handler(update, context):
+    """Log errors caused by Updates."""
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
 def main():
     updater = Updater(config.BOT_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
@@ -27,6 +31,9 @@ def main():
         Filters.animation | Filters.document, 
         handlers.message_handler
     ))
+    
+    # Register error handler
+    dispatcher.add_error_handler(error_handler)
     
     updater.job_queue.run_repeating(handlers.process_pending_media_groups, interval=2, first=0)
     

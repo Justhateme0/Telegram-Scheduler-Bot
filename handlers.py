@@ -198,6 +198,9 @@ def show_posts_list(update: Update, context: CallbackContext, channel_id, page=0
     )
 
 def message_handler(update: Update, context: CallbackContext):
+    if not update.effective_user:
+        return
+    
     user_id = update.effective_user.id
     
     if user_id not in config.ADMIN_IDS:
@@ -372,7 +375,12 @@ def process_pending_media_groups(context: CallbackContext):
     if "media_groups" not in context.bot_data:
         return
     
-    current_update_id = context.bot.get_updates()[-1].update_id if context.bot.get_updates() else 0
+    try:
+        updates = context.bot.get_updates()
+        current_update_id = updates[-1].update_id if updates else 0
+    except Exception as e:
+        logger.error(f"Error getting updates: {e}")
+        current_update_id = 0
     
     for media_group_id, group_data in list(context.bot_data["media_groups"].items()):
         if current_update_id > group_data["expires"]:
